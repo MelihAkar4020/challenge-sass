@@ -1,0 +1,118 @@
+
+@import "_variable.scss" ;
+
+@mixin shadow-box {
+    -webkit-box-shadow: 10px 10px 15px -4px $color-base ;
+    -moz-box-shadow: 10px 10px 15px -4px $color-base;
+    box-shadow: 10px 10px 15px -4px $color-base;
+
+}
+
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: $color-base;
+    margin: 0;
+    padding: $padding;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+main {
+    padding: 0 $padding;
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px $color-border solid;
+        @include shadow-box();
+        padding: $padding;
+        margin: 16px;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+
+        &#selling-points {
+        flex-grow: 2;
+        flex-basis: 100%;
+        }
+    }
+
+    code{
+        background: $color3;
+        border: 1px solid $color-base;
+        color: $color-base;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: $padding;
+        display: block;
+        word-wrap: break-word;
+        
+        &.before {
+        float: left;
+        width: 40%
+        }
+
+        &.after {
+        float: right;
+        width: 40%;    
+        }
+    }
+
+}
+
+h1{
+    color: $color-title ;
+
+}
+
+h3 {
+    color: $color-title;
+    text-align: center;
+    font-size: 1.5em;
+    padding: $padding;
+    margin-bottom: 0px;
+}
+
+footer{
+    h3{
+        padding: $padding * 2;
+    }
+}
+
+.messages {
+    border: 1px solid $color-border;
+    padding: $padding;
+    color: $color2;
+
+}
+
+.success {
+    @extend .messages;
+    background-color: $color-succes;
+    &:hover {background-color: red ; 
+}
+}
+
+.error {
+    @extend .messages;
+
+    background-color: $color-error;
+    &:hover {background-color: green ; 
+    }
+
+}
+.warning {
+    @extend .messages;
+
+    background-color: $color-warning;
+}
